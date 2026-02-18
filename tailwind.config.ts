@@ -57,6 +57,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        buy: {
+          DEFAULT: "hsl(var(--buy))",
+          foreground: "hsl(var(--buy-foreground))",
+        },
+        sell: {
+          DEFAULT: "hsl(var(--sell))",
+          foreground: "hsl(var(--sell-foreground))",
+        },
+        panel: "hsl(var(--panel-bg))",
+        nav: "hsl(var(--nav-bg))",
+        chart: "hsl(var(--chart-bg))",
       },
       borderRadius: {
         lg: "var(--radius)",
