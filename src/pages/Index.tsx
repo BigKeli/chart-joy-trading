@@ -6,6 +6,7 @@ import { OrderBookPanel } from "@/components/trading/OrderBookPanel";
 import { RecentTrades } from "@/components/trading/RecentTrades";
 import { TradeForm } from "@/components/trading/TradeForm";
 import { OpenOrders } from "@/components/trading/OpenOrders";
+import { ApiSettingsModal } from "@/components/trading/ApiSettingsModal";
 import { LayoutGrid, BarChart2, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -34,6 +35,7 @@ export default function Index() {
   const [prefillPrice, setPrefillPrice] = useState<number | null>(null);
   const [sidebarActive] = useState("trade");
   const [bottomTab, setBottomTab] = useState<"orders" | "trades">("orders");
+  const [showApiSettings, setShowApiSettings] = useState(false);
 
   return (
     <div className="flex flex-col w-full h-screen overflow-hidden bg-background">
@@ -45,6 +47,15 @@ export default function Index() {
         currentPrice={currentPrice}
         priceChange24h={priceChange24h}
         volume24h={volume24h}
+        onOpenSettings={() => setShowApiSettings(true)}
+      />
+
+      <ApiSettingsModal
+        open={showApiSettings}
+        onClose={() => setShowApiSettings(false)}
+        selectedPair={selectedPair}
+        pairs={pairs}
+        onPairChange={setSelectedPair}
       />
 
       {/* Main Content Area */}

@@ -8,6 +8,7 @@ interface TopNavigationProps {
   currentPrice: number;
   priceChange24h: { value: number; percent: number };
   volume24h: number;
+  onOpenSettings: () => void;
 }
 
 export function TopNavigation({
@@ -17,6 +18,7 @@ export function TopNavigation({
   currentPrice,
   priceChange24h,
   volume24h,
+  onOpenSettings,
 }: TopNavigationProps) {
   const isPositive = priceChange24h.percent >= 0;
 
@@ -102,7 +104,11 @@ export function TopNavigation({
         <button className="p-2 rounded hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground">
           <Bell className="w-4 h-4" />
         </button>
-        <button className="p-2 rounded hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground">
+        <button
+          onClick={onOpenSettings}
+          className="p-2 rounded hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
+          title="API Settings"
+        >
           <Settings className="w-4 h-4" />
         </button>
         <button className="flex items-center gap-2 px-3 py-1.5 rounded hover:bg-secondary transition-colors ml-1">
